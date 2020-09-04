@@ -2,9 +2,8 @@ name: Publish Docker image
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - v*
 
 jobs:
   push_to_registry:
@@ -21,6 +20,6 @@ jobs:
           registry: ghcr.io
           repository: ${{ github.repository }}
           tag_with_ref: true
-          tags: ${{github.sha}}
+          tags: $(echo ${{ github.ref }} | sed -e "s#refs/tags/##g")
         env:
           DOCKER_BUILDKIT: 1
