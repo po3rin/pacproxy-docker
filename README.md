@@ -2,7 +2,6 @@
 
 pacproxy docker image
 
-![pacproxy](img/pacproxy.png)
+<img src="img/pacproxy.png" width="460px">
 
 ## k8s Sidecar
-
