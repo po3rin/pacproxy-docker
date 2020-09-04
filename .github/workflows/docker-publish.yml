@@ -20,6 +20,6 @@ jobs:
           registry: ghcr.io
           repository: ${{ github.repository }}
           tag_with_ref: true
-          tags: $(echo ${{ github.ref }} | sed -e "s#refs/tags/##g")
+          tags: ${{ github.event.release.tag_name }}
         env:
           DOCKER_BUILDKIT: 1
